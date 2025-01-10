@@ -1,0 +1,11 @@
+.nav-bar ul li a:hover, ul li a button:hover {
+     color :aquamarine;
+    background: #fefefe;
+}
+
+.nav-bar ul li button.active , ul li a.active {
+
+    color:cadetblue;
+    background: #fefefe;
+}
+

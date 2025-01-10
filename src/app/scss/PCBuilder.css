@@ -1,0 +1,253 @@
+/* General Styles
+.pc-builder {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid #415fcd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #001E80, #0030B3);
+  -webkit-background-clip: text;
+  background-clip:text;
+  color: transparent;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #001E80;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: border 0.2s ease-in-out;
+}
+
+.dropdown:focus {
+  border-color: #001E80;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 30, 128, 0.5);
+}
+
+/* Platform Buttons */
+.platform-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; /* Make sure buttons wrap on small screens */
+}
+
+.platform-button {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 2px solid #001E80;
+  background: #fff;
+  color: #001E80;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.platform-button.selected,
+.platform-button:hover {
+  background: #001E80;
+  color: #fff;
+}
+
+/* Plus Button for Dropdowns */
+.plus-button {
+  background: #001E80;
+  color: #fff;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  transition: background 0.3s ease;
+}
+
+.plus-button:hover {
+  background: #0030B3;
+}
+
+/* Receipt Styling */
+.receipt {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-top: 1px solid #ddd;
+  background: #fdfdfd;
+}
+
+.receipt-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #001E80;
+}
+
+.receipt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.receipt-item {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.total-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #001E80;
+  text-align: right;
+}
+
+/* Action Button Container */
+.button-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0.5rem;
+}
+
+.action-button:hover {
+  background-color: #0030B3;
+}
+
+.action-button.reset {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.action-button.reset:hover {
+  background-color: #e53935;
+}
+
+.action-button.print {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.action-button.print:hover {
+  background-color: #388e3c;
+}
+
+.action-button.send {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.action-button.send:hover {
+  background-color: #f57c00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pc-builder {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .dropdown {
+    font-size: 14px;
+  }
+
+  .platform-button {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .plus-button {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-button {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .receipt-title {
+    font-size: 1.25rem;
+  }
+
+  .total-price {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile First - Small Screens */
+@media (max-width: 480px) {
+  .platform-button {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .plus-button {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .action-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 1.2rem;
+  }
+} */
