@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 @layer base{
 
 /* Global container class for responsive layouts */
@@ -77,9 +79,11 @@ html, body {
 }
 
 }
+
 @layer components {
+
     .btn {
-        @apply bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center
+        @apply bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center;
     }
 
     .btn-primary{
@@ -105,7 +109,7 @@ html, body {
 .mask-card{
 
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent); /* Non-WebKit fallback */
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 25%, transparent); /* Non-WebKit fallback */
 }
 .heading-color{
   @apply  font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text

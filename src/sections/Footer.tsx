@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import logo from "@/assets/thunder-final.png";
 import SocialInsta from "@/assets/social-insta.svg";
@@ -6,6 +7,7 @@ import SocialX from "@/assets/social-x.svg"
 
 
 export const Footer = () => {
+
   return (
     <footer className="bg-black text-[#BCBCBC] text-sm py-10 text-center">
       <div className="container">

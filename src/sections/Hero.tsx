@@ -1,13 +1,24 @@
+"use client"
 import ArrowIcon from "@/assets/arrow-right.svg";
 import HeroImg from "@/assets/macbook.png";
 import CylinderRight from "@/assets/cylinder.png";
 import SquareDiamond from "@/assets/28.png";
+import {motion, useScroll,useTransform,} from "framer-motion";
+import { useRef } from "react";
 
 
 import Image from "next/image";
 export const Hero = () => {
+  const heroRef = useRef(null);
+  const {scrollYProgress} = useScroll({
+    target: heroRef,
+    offset: ["start end", "end start"]
+  })
+
+  const translateY = useTransform(scrollYProgress,[0,1], [150,-150]);
   return (
     <section
+      ref={heroRef}
       id="home"
       className="pt-8 pb-8 md:pt-0 md:pb-10 bg-radial-gradient overflow-x-clip"
     >
@@ -43,20 +54,36 @@ export const Hero = () => {
           {/* Image section for hero   */}
           {/* className="md:h-full md:w-auto md: max-w-none" saved-- */}
           <div className="mt-20 md:mt-0  md:h-[580px]  flex items-center relative ">
-            <Image src={HeroImg} alt="hero image" />
-            <Image
-              src={CylinderRight}
+            <motion.img
+              src={HeroImg.src}
+              alt="hero image"
+              animate={{ translateY: [-20, 30] }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 10,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.img
+              src={CylinderRight.src}
               alt="cylinder"
               height={180}
               width={180}
               className="hidden lg:block  absolute xl:-top-8 xl:-left-8  lg:left-10 lg:-top-[72px] z-10"
+              style={{
+                translateY: translateY,
+              }}
             />
-            <Image
-              src={SquareDiamond}
+            <motion.img
+              src={SquareDiamond.src}
               alt="square diamond"
               height={180}
               width={180}
               className="hidden md:block md:absolute md:top-[450px] md:left-[350px] lg:left-[470px] z-0 rotate-[15deg]"
+              style={{
+                translateY: translateY,
+              }}
             />
           </div>
         </div>
