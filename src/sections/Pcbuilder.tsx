@@ -217,6 +217,36 @@ const PCBuilder = () => {
                   required
                 />
               </div>
+              <div className="form-group">
+                <label>Referral Code</label>
+                <input
+                  type="text"
+                  name="Referral Code"
+                  className="input-field"
+                  placeholder="Referral Code"
+                />
+              </div>
+              <div className="form-group">
+                <label>Referred By</label>
+                <input
+                  type="a"
+                  name="Referred by"
+                  className="input-field"
+                  placeholder="Referred by"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message-box">Additional Information</label>
+
+                <textarea
+                  id="message-box"
+                  name="w3review"
+                  rows={3}
+                  cols={40}
+                  defaultValue="Please share any special requests or questions regarding your build."
+                  className="bg-blue-50"
+                />
+              </div>
 
               <div className="receipt">
                 <h2 className="receipt-title">Selected Parts</h2>
