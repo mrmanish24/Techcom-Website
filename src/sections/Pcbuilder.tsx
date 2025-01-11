@@ -240,9 +240,9 @@ const PCBuilder = () => {
 
                 <textarea
                   id="message-box"
-                  name="w3review"
+                  name="Message"
                   rows={3}
-                  cols={40}
+                  cols={30}
                   defaultValue="Please share any special requests or questions regarding your build."
                   className="bg-blue-50"
                 />
