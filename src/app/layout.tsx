@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import Icon from "@/assets/logosaas.png"
+import Icon from "@/assets/thunder-final.png"
 
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
