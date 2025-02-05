@@ -70,7 +70,7 @@ export const Hero = () => {
               alt="cylinder"
               height={180}
               width={180}
-              className="hidden lg:block  absolute xl:-top-8 xl:-left-8  lg:left-10 lg:-top-[72px] z-10"
+              className="hidden lg:block  absolute xl:-top-8 xl:-left-8  lg:left-10 lg:-top-[60px] "
               style={{
                 translateY: translateY,
               }}

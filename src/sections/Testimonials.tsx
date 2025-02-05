@@ -8,6 +8,7 @@ import avatar6 from "@/assets/final/deepak-modified.png";
 import avatar7 from "@/assets/final/luckey-modified.png";
 import avatar8 from "@/assets/final/rajul-modified.png";
 import avatar9 from "@/assets/final/parag-modified.png";
+import ashu from "@/assets/final/ashu.jpg"
 import Image from "next/image";
 import {motion} from "framer-motion"
 import React from "react";
@@ -15,7 +16,7 @@ import React from "react";
 const testimonials = [
   {
     text: "The whole process was so simple, and the PC runs like a dream. Highly recommend!.",
-    imageSrc: avatar1,
+    imageSrc: ashu,
     name: "Ashutosh",
     username: "@ashupandey_7",
   },

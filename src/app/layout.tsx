@@ -3,6 +3,15 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import Icon from "@/assets/thunder-final.png"
+import { MenuProvider } from "@/components/context/MenuContext";
+import { Menu } from "@/components/Modals/MenuModal";
+import { ModalProvider } from "@/components/context/ModalContext";
+import { Modals } from "@/components/Modals/Modals";
+import { Header } from "@/sections/Header";
+import { Footer } from "@/sections/Footer";
+
+
+
 
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
@@ -24,8 +33,17 @@ export default function RootLayout({
         <link rel="icon" href={Icon.src} type="image/x-icon" />
       </head>
       <body className={clsx(dmSans.className, "antialiased bg-[#EAEEFE]")}>
-        {children}
+        <ModalProvider>
+          <MenuProvider>
+            <Modals />
+            <Menu />
+            <Header />
+            {children}
+            <Footer />
+          </MenuProvider>
+        </ModalProvider>
       </body>
     </html>
   );
 }
+

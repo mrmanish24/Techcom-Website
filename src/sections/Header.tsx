@@ -19,7 +19,7 @@ export const Header = () => {
           Your Perfect PC is Just a Click Away!
         </p>
         <div className="inline-flex gap-1 items-center">
-          <a href="#PCbuilder">
+          <a href="/#home/#PCbuilder">
             <p className="text-white hidden md:block">Start Building</p>
           </a>
           <ArrowRight className="h-4 w-4 justify-center" />
@@ -29,12 +29,7 @@ export const Header = () => {
       {/* Logo and Navigation */}
       <div className="py-5">
         <div className=" container mx-auto px-4 flex justify-between items-center">
-          <Image
-            src={Logo}
-            alt="Saas logo"
-            height={100}
-            width={100}
-          />
+          <Image src={Logo} alt="Saas logo" height={100} width={100} />
 
           {/* Hamburger Icon */}
           <button onClick={toggleMenu} className="md:hidden focus:outline-none">
@@ -43,7 +38,7 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-gray-800 tracking-tight">
-            <a href="#home" className="hover:text-black">
+            <a href="/" className="hover:text-black">
               Home
             </a>
             <button
@@ -71,13 +66,13 @@ export const Header = () => {
             <button
               onClick={() =>
                 openModal(
-                  "Admin Panel",
-                  "Only Accessible to Admin (under construction 🏗️🚧)"
+                  "Services",
+                 "👨‍🔧 PC Building – Built for power, made for you! \n \n🔧 PC Repair – Fix it fast, game on!"
                 )
               }
               className="hover:text-black"
             >
-              Admin Panel
+              Services
             </button>
             <a
               href="tel:7389185159"
