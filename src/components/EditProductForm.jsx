@@ -15,12 +15,15 @@ const EditProductForm = ({ id,category,name, price }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/admin/api/${id}`, {
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/admin/api";
+
+      const res = await fetch(`/admin/api/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ category, newName, newPrice }),
+        body: JSON.stringify({ newCategory, newName, newPrice }),
       });
 
       if (!res.ok) {
@@ -38,12 +41,13 @@ const EditProductForm = ({ id,category,name, price }) => {
         <h1 className="font-semibold text-2xl">Update Product</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6">
           <input
-            value={category}
+            value={newCategory}
             onChange={(e)=> setCategory(e.target.value)}
             type="text"
             placeholder={""}
             className="border border-gray-300 px-8 py-2"
           />
+
           <input
             onChange={(e) => setNewName(e.target.value)}
             value={newName}

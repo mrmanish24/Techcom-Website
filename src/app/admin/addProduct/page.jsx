@@ -13,7 +13,7 @@ const AddProduct = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/admin/api", {
+      const res = await fetch('/admin/api', {
         method: "POST",
         headers: {
           "Content-type": "application/json",

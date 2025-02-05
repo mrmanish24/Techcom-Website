@@ -9,11 +9,6 @@ import { ModalProvider } from "@/components/context/ModalContext";
 import { Modals } from "@/components/Modals/Modals";
 import { Header } from "@/sections/Header";
 import { Footer } from "@/sections/Footer";
-
-
-
-
-
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

@@ -1,5 +1,8 @@
+
 import EditProductForm from "@/components/EditProductForm";
 import pc_parts from "@/models/pcParts";
+import { cache } from "react";
+export const dynamic = "force-dynamic";
 
 
 interface ProductResponse {
@@ -13,12 +16,15 @@ interface ProductResponse {
 
 const getProductById = async (id:string): Promise<ProductResponse | null> => {
   try {
-    const res = await fetch(`http://techcom.vercel.app/admin/api/${id}`, {
-      cache: "no-store",
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/admin/api";
+
+    const res = await fetch(`${baseUrl}/${id}`, {
+       cache : "no-cache"
     });
 
     if (!res.ok) {
-      throw new Error("faild to fetch Product");
+      throw new Error("failed to fetch Product");
     }
     return res.json();
 
@@ -27,8 +33,9 @@ const getProductById = async (id:string): Promise<ProductResponse | null> => {
     return null
   }
 };
-interface EditProductProps{
-    params:{id:string}
+
+interface EditProductProps {
+  params: Promise<{ id: string }>;
 }
 const EditProduct = async ({ params }: EditProductProps) => {
   const { id } = await params;

@@ -39,7 +39,7 @@ const PCBuilder2 = () => {
       try {
         await connectMongoDB();
         const res = await fetch("http://localhost:3000/admin/api", {
-          cache: "no-store",
+              next: { revalidate: 60 },
         });
 
 

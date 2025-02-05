@@ -6,6 +6,7 @@ import Image from "next/image";
 import MenuIcon from "@/assets/menu.svg";
 import { useModal } from "@/components/context/ModalContext";
 import { useMenu } from "@/components/context/MenuContext";
+import Link from "next/link";
 
 export const Header = () => {
   const { openModal } = useModal();
@@ -19,9 +20,9 @@ export const Header = () => {
           Your Perfect PC is Just a Click Away!
         </p>
         <div className="inline-flex gap-1 items-center">
-          <a href="/#home/#PCbuilder">
+          <Link href="/#home/#PCbuilder">
             <p className="text-white hidden md:block">Start Building</p>
-          </a>
+          </Link>
           <ArrowRight className="h-4 w-4 justify-center" />
         </div>
       </div>
@@ -38,9 +39,9 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-gray-800 tracking-tight">
-            <a href="/" className="hover:text-black">
+            <Link href="/" className="hover:text-black">
               Home
-            </a>
+            </Link>
             <button
               onClick={() =>
                 openModal(
@@ -67,19 +68,20 @@ export const Header = () => {
               onClick={() =>
                 openModal(
                   "Services",
-                 "👨‍🔧 PC Building – Built for power, made for you! \n \n🔧 PC Repair – Fix it fast, game on!"
+                  "👨‍🔧 PC Building – Built for power, made for you! \n \n🔧 PC Repair – Fix it fast, game on!"
                 )
               }
               className="hover:text-black"
             >
               Services
             </button>
-            <a
+            <Link
               href="tel:7389185159"
               className="bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center hover:bg-gray-900"
             >
+              {" "}
               Get Expert Help
-            </a>
+            </Link>
           </nav>
         </div>
       </div>

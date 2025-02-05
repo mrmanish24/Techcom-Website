@@ -8,7 +8,9 @@ const RemoveBtn = ({ id }) => {
   const removeProduct = async () => {
     const confirmed = confirm("Are you Sure?");
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/admin/api/?id=${id}`, {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/admin/api";
+      const res = await fetch(`${baseUrl}/?id=${id}`, {
         method: "DELETE",
       });
 
