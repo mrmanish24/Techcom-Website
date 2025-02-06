@@ -9,8 +9,8 @@ const RemoveBtn = ({ id }) => {
     const confirmed = confirm("Are you Sure?");
     if (confirmed) {
       const baseUrl =
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/admin/api";
-      const res = await fetch(`${baseUrl}/?id=${id}`, {
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+      const res = await fetch(`${baseUrl}/admin/api/?id=${id}`, {
         method: "DELETE",
       });
 

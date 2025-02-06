@@ -89,13 +89,11 @@ const EditProductForm = ({ id, category, name, price }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset error message
 
     try {
-      const baseUrl =
-        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/admin/api";
-
-      const res = await fetch(`/admin/api/${id}`, {
+        const baseUrl =
+          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+      const res = await fetch(`${baseUrl}/admin/api/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -142,7 +140,7 @@ const EditProductForm = ({ id, category, name, price }) => {
         <input
           value={newPrice}
           onChange={(e) => setNewPrice(e.target.value)}
-          type="number"
+          type="Number"
           placeholder="Price"
           className="border border-gray-300 px-4 py-2 rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
         />

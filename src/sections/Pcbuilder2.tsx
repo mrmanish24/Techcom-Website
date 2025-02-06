@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import "../app/scss/PCBuilder2.css";
 import connectMongoDB from "@/lib/mongoDB";
-
+import LoadingLine from "@/components/Loading";
+import { div } from "framer-motion/client";
 
 // Define the TypeScript types
 type PcPart = {
@@ -21,7 +22,6 @@ interface SelectedParts {
   [key: string]: PcPart | undefined;
 }
 
-
 const PCBuilder2 = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
   const [selectedParts, setSelectedParts] = useState<SelectedParts>({});
@@ -37,11 +37,12 @@ const PCBuilder2 = () => {
   useEffect(() => {
     const fetchPcParts = async () => {
       try {
+        const baseUrl =
+          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
         await connectMongoDB();
-        const res = await fetch("http://localhost:3000/admin/api", {
-              next: { revalidate: 60 },
+        const res = await fetch(`${baseUrl}/admin/api`, {
+          cache: "no-cache",
         });
-
 
         if (!res.ok) {
           throw new Error("Failed to fetch PC parts");
@@ -59,6 +60,13 @@ const PCBuilder2 = () => {
 
     fetchPcParts();
   }, []);
+
+  if (loading)
+    return (
+      <div className="h-1">
+        <LoadingLine />
+      </div>
+    );
 
   // Handle category selection updates
   const updateSelection = (
@@ -91,7 +99,6 @@ const PCBuilder2 = () => {
     window.print();
   };
 
-  if (loading) return <p>Loading PC Parts...</p>;
   if (error) return <p>{error}</p>;
   if (!pcParts) return <p>No PC Parts available.</p>;
 
@@ -102,20 +109,7 @@ const PCBuilder2 = () => {
 
   return (
     <>
-      <section
-        id="PCbuilder"
-        className="bg-gradient-to-b from-[#ffffff] to-[#D2DCFF] py-24"
-      >
-        <div className="pcbuild-container container">
-          <h2 className="heading-color text-3xl text-center">
-            Assemble Your Dream Machine
-          </h2>
-          <p className="text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E] mt-6">
-            Pick your components, personalize your build, and send your request.
-            We’ll handle the rest.
-          </p>
-        </div>
-
+      <section>
         <div className="container pc-builder">
           <form
             action="https://api.web3forms.com/submit"
@@ -193,6 +187,57 @@ const PCBuilder2 = () => {
                     +
                   </button>
                 )}
+
+                <div className="form-group">
+                  <label>Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    className="input-field"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Your Phone Number</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    className="input-field"
+                    placeholder="Enter your phone number"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Referral Code</label>
+                  <input
+                    type="text"
+                    name="Referral Code"
+                    className="input-field"
+                    placeholder="Referral Code"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Referred By</label>
+                  <input
+                    type="a"
+                    name="Referred by"
+                    className="input-field"
+                    placeholder="Referred by"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="message-box">Additional Information</label>
+
+                  <textarea
+                    id="message-box"
+                    name="Message"
+                    rows={3}
+                    cols={30}
+                    defaultValue="Please share any special requests or questions regarding your build."
+                    className="bg-blue-50"
+                  />
+                </div>
 
                 <div className="receipt">
                   <h2 className="receipt-title">Selected Parts</h2>

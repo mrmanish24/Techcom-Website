@@ -62,8 +62,8 @@ export const dynamic = "force-dynamic";
 const getProduct = async () => {
   try {
     const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/admin/api";
-    const res = await fetch(baseUrl, { cache: "no-cache" });
+      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/admin/api`, { cache: "no-cache" });
 
     if (!res.ok) {
       throw new Error("Failed to fetch Product");
@@ -78,6 +78,7 @@ const getProduct = async () => {
     };
   }
 };
+
 
 const Products = async () => {
   const { Pc_parts } = await getProduct();

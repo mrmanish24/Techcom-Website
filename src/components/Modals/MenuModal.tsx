@@ -3,10 +3,16 @@ import Close from "@/assets/close.png";
 import { useMenu } from "../context/MenuContext";
 import { useModal } from "../context/ModalContext";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export const Menu = () => {
+  
   const { openMenu, toggleMenu } = useMenu(); // Access the context
   const {openModal} = useModal();
+
+ const baseUrl =
+   process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000/";
   return (
     openMenu && (
       <>
@@ -23,14 +29,12 @@ export const Menu = () => {
               onClick={toggleMenu}
               className=" text-gray-800 focus:outline-none text-xl "
             >
-              <Image src={Close} width={23} height={20} alt="close btn"/>
+              <Image src={Close} width={23} height={20} alt="close btn" />
             </button>
           </div>
           <ul className="flex flex-col items-center gap-6 p-8 text-gray-800 text-lg">
             <li>
-              <a href="#home" onClick={toggleMenu} >
-                Home
-              </a>
+              <Link onClick={toggleMenu} href={baseUrl}>Home</Link>
             </li>
             <li>
               <button
@@ -56,19 +60,6 @@ export const Menu = () => {
                 }}
               >
                 Contact
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => {
-                  openModal(
-                    "Admin Panel",
-                    "Only Accessible to Admin (under construction 🏗️🚧)"
-                  );
-                  toggleMenu();
-                }}
-              >
-                Admin Panel
               </button>
             </li>
             <li>
